@@ -57,9 +57,12 @@ before_install:
   - if [[ $EXECUTE_TEST_COVERALLS != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
   - composer self-update
   - if [[ $EXECUTE_TEST_COVERALLS == 'true' ]]; then composer require --dev --no-update satooshi/php-coveralls ; fi
+  - wget http://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz && tar -zxvf xcache-3.2.0.tar.gz
+  - (cd xcache-3.2.0 && phpize && ./configure --enable-xcache --enable-xcache-coverager)
 
 install:
   - travis_retry composer install --no-interaction --ignore-platform-reqs
+  - (cd xcache-3.2.0 && make && make install)
 
 before_script:
   - phpenv config-add .ci/php.ini || return 0
