@@ -54,12 +54,6 @@ class XCache extends AbstractAdapter implements
             throw new Exception\ExtensionNotLoadedException('Missing ext/xcache');
         }
 
-        if (PHP_SAPI == 'cli') {
-            throw new Exception\ExtensionNotLoadedException(
-                "ext/xcache isn't available on SAPI 'cli'"
-            );
-        }
-
         if (ini_get('xcache.var_size') <= 0) {
             throw new Exception\ExtensionNotLoadedException(
                 "ext/xcache is disabled - see 'xcache.var_size'"
