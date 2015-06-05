@@ -33,15 +33,6 @@ class XCacheTest extends CommonAdapterTest
             }
         }
 
-        if (PHP_SAPI == 'cli') {
-            try {
-                new Cache\Storage\Adapter\XCache();
-                $this->fail("Expected exception Zend\Cache\Exception\ExtensionNotLoadedException");
-            } catch (Cache\Exception\ExtensionNotLoadedException $e) {
-                $this->markTestSkipped($e->getMessage());
-            }
-        }
-
         if ((int)ini_get('xcache.var_size') <= 0) {
             try {
                 new Cache\Storage\Adapter\XCache();
