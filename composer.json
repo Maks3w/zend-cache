@@ -26,7 +26,7 @@
     },
     "suggest": {
         "zendframework/zend-session": "Zend\\Session component",
-        "ext-apc": "APC >= 3.1.6 to use the APC storage adapter",
+        "ext-apcu": "APCU, to use the APC storage adapter",
         "ext-dba": "DBA, to use the DBA storage adapter",
         "ext-memcache": "Memcache >= 2.0.0 to use the Memcache storage adapter",
         "ext-memcached": "Memcached >= 1.0.0 to use the Memcached storage adapter",
